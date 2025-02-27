@@ -1,0 +1,615 @@
+<?xml version="1.0" ?>
+<robot name="rob_manipulator">
+    <!-- Dijelovi robota-->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.28 0.28 0.2765" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.13825" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.28 0.28 0.2765" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.13825" />
+        </collision>
+        <inertial>
+            <mass value="1.0" />
+            <inertia ixx="0.0027" iyy="0.0027" izz="0.005" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.13825" />
+        </inertial>
+    </link>
+    <!-- Empty Link-->
+    <link name="world" />
+    <joint name="fixed" type="fixed">
+        <parent link="world" />
+        <child link="base_link" />
+    </joint>
+    <link name="link_1">
+        <visual>
+            <geometry>
+                <box size="0.242 0.242 0.2635" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.13175" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.242 0.242 0.2635" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.13175" />
+        </collision>
+        <inertial>
+            <mass value="1.0" />
+            <inertia ixx="0.00145" iyy="0.00145" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.13175" />
+        </inertial>
+    </link>
+    <joint name="joint_1" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="base_link" />
+        <child link="link_1" />
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.2765" />
+    </joint>
+    <link name="link_2">
+        <visual>
+            <geometry>
+                <box size="0.245 0.245 0.87" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.435" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.245 0.245 0.87" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.435" />
+        </collision>
+        <inertial>
+            <mass value="1.0" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.435" />
+        </inertial>
+    </link>
+    <joint name="joint_2" type="continuous">
+        <axis xyz="1 0 0" />
+        <parent link="link_1" />
+        <child link="link_2" />
+        <origin rpy="0 0 0" xyz="-0.242 0 0.13175" />
+    </joint>
+    <link name="link_3">
+        <visual>
+            <geometry>
+                <box size="0.242 0.242 0.290" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0" />
+        </visual>
+        <visual>
+            <geometry>
+                <box size="0.242 0.242 0.6575" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0.242 0.18375" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.242 0.242 0.290" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0. 0" />
+        </collision>
+        <collision>
+            <geometry>
+                <box size="0.242 0.242 0.6575" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0.242 0.18375" />
+        </collision>
+        <inertial>
+            <mass value="1.0" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0" />
+        </inertial>
+    </link>
+    <joint name="joint_3" type="continuous">
+        <axis xyz="1 0 0" />
+        <parent link="link_2" />
+        <child link="link_3" />
+        <origin rpy="0 0 0" xyz="0.242 0 0.87" />
+    </joint>
+    <link name="link_4">
+        <visual>
+            <geometry>
+                <cylinder length="0.5125" radius="0.1" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.25625" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.5125" radius="0.1" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.25625" />
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.25625" />
+        </inertial>
+    </link>
+    <joint name="joint_4" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="link_3" />
+        <child link="link_4" />
+        <origin rpy="0 0 0" xyz="0 0.242 0.5125" />
+    </joint>
+    <link name="link_5">
+        <visual>
+            <geometry>
+                <cylinder length="0.175" radius="0.1" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.0875" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.175" radius="0.1" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.0875" />
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.0875" />
+        </inertial>
+    </link>
+    <joint name="joint_5" type="continuous">
+        <axis xyz="1 0 0" />
+        <parent link="link_4" />
+        <child link="link_5" />
+        <origin rpy="0 0 0" xyz="0 0 0.5125" />
+    </joint>
+    <link name="camera_holder">
+        <visual>
+            <geometry>
+                <box size="0.04 0.16 0.04" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.04 0.16 0.04" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </inertial>
+    </link>
+
+    <joint name="joint_holder" type="fixed">
+        <parent link="link_5" />
+        <child link="camera_holder" />
+        <origin rpy="0 0 0" xyz="0.0 0.15 0.1" />
+    </joint>
+
+    <link name="camera_link">
+        <visual>
+            <geometry>
+                <box size="0.08 0.08 0.08" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0.0 0.0" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.08 0.08 0.08" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0.0 0.0" />
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.0" />
+        </inertial>
+    </link>
+
+    <joint name="joint_camera" type="fixed">
+        <parent link="camera_holder" />
+        <child link="camera_link" />
+        <origin rpy="-1.57 -1.57 0" xyz="0.0 0.12 0.02" />
+    </joint>
+    <joint name="camera_rgb_joint" type="fixed">
+        <origin xyz="0.041 0.0 0" rpy="0 1.57 0"/>
+        <parent link="camera_link"/>
+        <child link="camera_rgb_frame" />
+    </joint>
+    <link name="camera_rgb_frame"/>
+
+    <link name="wrist">
+        <visual>
+            <geometry>
+                <cylinder length="0.055" radius="0.05" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.0275" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder length="0.055" radius="0.05" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.0275" />
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.0275" />
+        </inertial>
+    </link>
+    <joint name="joint_6" type="continuous">
+        <axis xyz="0 0 1" />
+        <parent link="link_5" />
+        <child link="wrist" />
+        <origin rpy="0 0 1.57" xyz="0 0 0.175" />
+    </joint>
+    <link name="palm">
+        <visual>
+            <geometry>
+                <box size="0.04 0.25 0.04" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.04 0.25 0.04" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.02" />
+        </inertial>
+    </link>
+    <joint name="joint_7" type="fixed">
+        <parent link="wrist"/>
+        <child link="palm"/>
+        <origin rpy="0 0 0" xyz="0 0 0.055"/>
+    </joint>
+    <link name="finger1">
+        <visual>
+            <geometry>
+                <box size="0.04 0.04 0.098" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.04 0.04 0.098" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1</mu>
+                        <mu2>1</mu2>
+                        <fdir1>0 0 0</fdir1>
+                        <slip1>0</slip1>
+                        <slip2>0</slip2>
+                    </ode>
+                </friction>
+                <contact>
+                    <collide_without_contact>0</collide_without_contact>
+                    <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                    <collide_bitmask>1</collide_bitmask>
+                    <ode>
+                        <soft_cfm>0</soft_cfm>
+                        <soft_erp>0.2</soft_erp>
+                        <kp>1e+13</kp>
+                        <kd>1</kd>
+                        <max_vel>0.01</max_vel>
+                        <min_depth>0</min_depth>
+                    </ode>
+                    <bullet>
+                        <split_impulse>1</split_impulse>
+                        <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                        <soft_cfm>0</soft_cfm>
+                        <soft_erp>0.2</soft_erp>
+                        <kp>1e+13</kp>
+                        <kd>1</kd>
+                    </bullet>
+                </contact>
+            </surface>
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+        </inertial>
+    </link>
+    <joint name="joint_8" type="prismatic">
+        <axis xyz="0 1 0" />
+        <parent link="palm" />
+        <child link="finger1" />
+        <origin rpy="0 0 0" xyz="0 -0.102 0.04" />
+        <limit lower="0" upper="0.08" effort="500.0" velocity="2.0"/>
+        <dynamics damping = "0.5" friction = "0.5" />
+    </joint>
+    <link name="finger2">
+        <visual>
+            <geometry>
+                <box size="0.04 0.04 0.098" />
+            </geometry>
+            <material name="silver">
+                <color rgba="0.75 0.75 0.75 1" />
+            </material>
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="0.04 0.04 0.098" />
+            </geometry>
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+            <surface>
+                <friction>
+                    <ode>
+                        <mu>1</mu>
+                        <mu2>1</mu2>
+                        <fdir1>0 0 0</fdir1>
+                        <slip1>0</slip1>
+                        <slip2>0</slip2>
+                    </ode>
+                </friction>
+                <contact>
+                    <collide_without_contact>0</collide_without_contact>
+                    <collide_without_contact_bitmask>1</collide_without_contact_bitmask>
+                    <collide_bitmask>1</collide_bitmask>
+                    <ode>
+                        <soft_cfm>0</soft_cfm>
+                        <soft_erp>0.2</soft_erp>
+                        <kp>1e+13</kp>
+                        <kd>1</kd>
+                        <max_vel>0.01</max_vel>
+                        <min_depth>0</min_depth>
+                    </ode>
+                    <bullet>
+                        <split_impulse>1</split_impulse>
+                        <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+                        <soft_cfm>0</soft_cfm>
+                        <soft_erp>0.2</soft_erp>
+                        <kp>1e+13</kp>
+                        <kd>1</kd>
+                    </bullet>
+                </contact>
+            </surface>
+        </collision>
+        <inertial>
+            <mass value="0.01" />
+            <inertia ixx="0.01396" iyy="0.01396" izz="0.00125" ixy="0" ixz="0" iyz="0" />
+            <origin rpy="0.0 0 0" xyz="0 0 0.049" />
+        </inertial>
+    </link>
+    <joint name="joint_9" type="prismatic">
+        <axis xyz="0 1 0" />
+        <parent link="palm" />
+        <child link="finger2" />
+        <origin rpy="0 0 3.14" xyz="0 0.102 0.04" />
+        <limit lower="0" upper="0.08" effort="500.0" velocity="2.0"/>
+        <dynamics damping = "0.5" friction = "0.5" />
+    </joint>
+
+    <transmission name="tran0">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_1">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor0">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_2">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor1">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_3">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor2">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_4">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor3">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_5">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor4">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran5">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_6">
+            <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor5">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+     <transmission name="tran7">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_8">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor7">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <transmission name="tran8">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="joint_9">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="motor8">
+            <mechanicalReduction>1</mechanicalReduction>
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </actuator>
+    </transmission>
+    <gazebo reference="base_link">
+        <material>Gazebo/Chrome</material>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+    <gazebo reference="link_1">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="link_2">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="link_3">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="link_4">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="link_5">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="camera_link">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="wrist">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="palm">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="finger1">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo reference="finger2">
+        <material>Gazebo/Chrome</material>
+    </gazebo>
+    <gazebo>
+        <plugin name="control" filename="libgazebo_ros_control.so">
+            <robotNamespace />
+        </plugin>
+    </gazebo>
+    <!-- <gazebo>
+        <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+            <jointName>joint_1, joint_2, joint_3, joint_4, joint_5, joint_6, joint_8, joint_9</jointName>
+        </plugin>
+    </gazebo> -->   
+
+
+    <gazebo reference="camera_link">
+        <sensor type="camera" name="camera">
+            <update_rate>30.0</update_rate>
+            <camera name="head">
+                <horizontal_fov>1.3962634</horizontal_fov>
+                <image>
+                    <width>840</width>
+                    <height>840</height>
+                    <format>R8G8B8</format>
+                </image>
+                <clip>
+                    <near>0.02</near>
+                    <far>300</far>
+                </clip>
+                <noise>
+                    <type>gaussian</type>
+                    <mean>0.0</mean>
+                    <stddev>0.007</stddev>
+                </noise>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <alwaysOn>true</alwaysOn>
+                <updateRate>0.0</updateRate>
+                <cameraName>/camera</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+                <frameName>camera_optical_frame</frameName>
+                <hackBaseline>0.07</hackBaseline>
+                <distortionK1>0.0</distortionK1>
+                <distortionK2>0.0</distortionK2>
+                <distortionK3>0.0</distortionK3>
+                <distortionT1>0.0</distortionT1>
+                <distortionT2>0.0</distortionT2>
+            </plugin>
+        </sensor>
+    </gazebo>
+
+    <gazebo>
+        <plugin name="gazebo_grasp_fix" filename="libgazebo_grasp_fix.so">
+            <arm>
+                <arm_name>arm1</arm_name>
+                <palm_link>wrist</palm_link>
+                <gripper_link>finger1</gripper_link>
+                <gripper_link>finger2</gripper_link>
+            </arm>
+            <forces_angle_tolerance>100</forces_angle_tolerance>
+            <update_rate>20</update_rate>
+            <grip_count_threshold>2</grip_count_threshold>
+            <max_grip_count>8</max_grip_count>
+            <release_tolerance>0.01</release_tolerance>
+            <disable_collisions_on_attach>false</disable_collisions_on_attach>
+            <contact_topic>__default_topic__</contact_topic>
+        </plugin>
+    </gazebo>
+
+</robot>
+

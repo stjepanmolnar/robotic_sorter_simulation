@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: project
+    relative_path: models/rob_manipulator.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/rob_manipulator.srdf
+  CONFIG:
+    author_name: pero
+    author_email: pre@gmail.com
+    generated_timestamp: 1740389804
